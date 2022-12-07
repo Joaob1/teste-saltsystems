@@ -6,7 +6,7 @@ export const MessageSent = styled.div`
   flex-direction: row-reverse;
   margin-bottom: 1rem;
   & p {
-    max-width: 30rem;
+    max-width: 75%;
     font-weight: 700;
     font-size: 1.7rem;
     line-height: 2.4rem;
@@ -42,7 +42,7 @@ export const MessageReceived = styled.div`
     color: #000000 !important;
     font-weight: 700;
     font-size: 1.7rem;
-    max-width: 30rem;
+    max-width: 75%;
     word-wrap: break-word;
     line-height: 2.4rem;
     padding: 1rem 2rem;
