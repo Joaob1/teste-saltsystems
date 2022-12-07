@@ -6,13 +6,14 @@ export const MessageSent = styled.div`
   flex-direction: row-reverse;
   margin-bottom: 1rem;
   & p {
-    max-width: 50rem;
+    max-width: 30rem;
     font-weight: 700;
     font-size: 1.7rem;
     line-height: 2.4rem;
     padding: 1rem 2rem;
+    word-wrap: break-word;
     border-radius: 2.5rem;
-    text-align: center;
+    text-align: right;
     color: #FFFFFF;
     background: #0b93f6;
     justify-self: flex-end;
@@ -41,13 +42,14 @@ export const MessageReceived = styled.div`
     color: #000000 !important;
     font-weight: 700;
     font-size: 1.7rem;
-    max-width: 50rem;
+    max-width: 30rem;
+    word-wrap: break-word;
     line-height: 2.4rem;
     padding: 1rem 2rem;
     border-radius: 2.5rem;
     position: relative;
     color: white;
-    text-align: center;
+    text-align: left;
   }
   & img{
     border-radius: 50%;
