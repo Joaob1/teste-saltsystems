@@ -86,5 +86,5 @@ export const EmojiContainer = styled.img`
 `
 export const PickerContainer = styled.div`
   position: absolute;
-  bottom: 6.5rem;
+  bottom: 10vh;
 `
