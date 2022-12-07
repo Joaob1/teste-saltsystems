@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 import { app, databaseApp } from "../../../firebase/firebaseConfig";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FormSendMessage, Main } from "./styles";
 import ChatMessage from "../ChatMessage";
 import { getAuth } from "firebase/auth";
@@ -26,6 +26,9 @@ export default function ChatRoom() {
   const [messages] = useCollectionData(queryMessages, { idField: "id" });
   const [inputValue, setInputValue] = useState("");
   const dummy = useRef();
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
   const sendMessage = async (e) => {
     e.preventDefault();
     const { photoURL, uid, displayName } = auth.currentUser;
@@ -59,6 +62,7 @@ export default function ChatRoom() {
         <FormSendMessage onSubmit={(e) => sendMessage(e)}>
           <input
             type="text"
+            maxLength={50}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />

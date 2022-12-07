@@ -10,6 +10,21 @@ export const Main = styled.main`
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  &::-webkit-scrollbar {
+  width: 8px;               
+}
+
+&::-webkit-scrollbar-track {
+  background: #cacaca;        
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: #0b93f6;
+  border-radius: 2rem;
+  &:hover{
+    background-color: rgb(25, 118, 210);
+  }
+  }
   @media (max-width: 900px){
     width: 70vw;
   }
@@ -19,6 +34,7 @@ export const Main = styled.main`
 `;
 export const FormSendMessage = styled.form`
   height: 10vh;
+  margin-left: -10px;
   position: fixed;
   bottom: 0;
   background-color: rgb(24, 23, 23);
