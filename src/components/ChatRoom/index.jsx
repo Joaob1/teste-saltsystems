@@ -9,14 +9,22 @@ import {
 import { app, databaseApp } from "../../../firebase/firebaseConfig";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useEffect, useRef, useState } from "react";
-import { FormSendMessage, Main } from "./styles";
+import {
+  EmojiContainer,
+  FormSendMessage,
+  Main,
+  PickerContainer,
+} from "./styles";
 import ChatMessage from "../ChatMessage";
 import { getAuth } from "firebase/auth";
 import chatBot from "../../../helpers/ChatBot";
 import botImage from "../../assets/bot.png";
+import EmojiPicker from "emoji-picker-react";
+import emojiIcon from "../../assets/emoji.png";
 
 const auth = getAuth(app);
 export default function ChatRoom() {
+  const [openEmoji, setOpenEmoji] = useState(false);
   const messagesRef = collection(databaseApp, "messages");
   const queryMessages = query(
     messagesRef,
@@ -51,6 +59,9 @@ export default function ChatRoom() {
     setInputValue("");
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };
+  const setEmoji = (emoji) => {
+    setInputValue(`${inputValue}${emoji.emoji}`);
+  };
   return (
     <>
       <Main>
@@ -58,11 +69,22 @@ export default function ChatRoom() {
           messages.map((msg, index) => (
             <ChatMessage key={index} message={msg} />
           ))}
+        {openEmoji && (
+          <PickerContainer>
+            <EmojiPicker
+              onEmojiClick={(emoji) => setEmoji(emoji)}
+              height={"320px"}
+            />
+          </PickerContainer>
+        )}
         <div ref={dummy}></div>
         <FormSendMessage onSubmit={(e) => sendMessage(e)}>
+          <EmojiContainer
+            onClick={() => setOpenEmoji(!openEmoji)}
+            src={emojiIcon}
+          />
           <input
             type="text"
-            maxLength={50}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
