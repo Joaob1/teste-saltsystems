@@ -32,7 +32,7 @@ Caso queira testar essa aplicação localmente em sua máquina, os seguintes pas
 1. Fazer o FORK (clonar) deste repositório;
 2. Dentro do diretório clonado na sua máquina, digite `yarn`;
 3. Para inicializar a aplicação, digite `yarn dev`;
-4.  Pronto! A aplicação será aberta automaticamente em seu navegador. Caso não, digite no campo url: <http://localhost:5173>.
+4.  Pronto! A aplicação está aberta! basta abrir o navegador e digitar no campo url: <http://localhost:5173>.
 
 <h2>Tecnologias utilizadas</h2>
 
