@@ -7,6 +7,7 @@ export const MobileButton = styled.div`
 
 export const Navbar = styled.div`
     z-index: 5;
+    border: 1px solid #000;
     position: absolute;
     background-color: #fff;
     border-radius: 1.6rem;

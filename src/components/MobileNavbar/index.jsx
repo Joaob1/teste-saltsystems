@@ -12,7 +12,7 @@ export default function MobileNavbar({ children }) {
       </MobileButton>
       {navbar && (
         <Navbar>
-          <CloseIcon src={close} alt="close" />
+          <CloseIcon src={close} alt="close" onClick={() => setNavbar(false)} />
           {children}
         </Navbar>
       )}
