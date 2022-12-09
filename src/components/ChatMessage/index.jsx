@@ -1,13 +1,18 @@
 import { getAuth } from "firebase/auth";
 import { app } from "../../../firebase/firebaseConfig";
-import { MessageReceived, MessageSent } from "./styles";
+import userIcon from "../../assets/user.png";
+import { DefaultIcon, MessageReceived, MessageSent } from "./styles";
 const auth = getAuth(app);
 export default function ChatMessage(props) {
   const { text, uid, photoURL, name } = props.message;
   if (uid === auth.currentUser.uid) {
     return (
       <MessageSent>
-        <img src={photoURL} alt="Profile Image" />
+        {photoURL ? (
+          <img src={photoURL} alt="Profile Image" />
+        ) : (
+          <DefaultIcon src={userIcon} alt="User avatar" />
+        )}
         <p>{text}</p>
       </MessageSent>
     );
@@ -16,7 +21,11 @@ export default function ChatMessage(props) {
     <MessageReceived>
       <span>{name}</span>
       <div>
-        <img src={photoURL} alt="Profile Image" />
+        {photoURL ? (
+          <img src={photoURL} alt="Profile Image" />
+        ) : (
+          <DefaultIcon src={userIcon} alt="User avatar" />
+        )}
         <p>{text}</p>
       </div>
     </MessageReceived>

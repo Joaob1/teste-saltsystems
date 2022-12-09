@@ -18,7 +18,6 @@ export const ModalBackground = styled.div`
 export const Modal = styled.div`
     text-align: center;
     z-index: 2;
-    pointer-events: none;
     width: 50vw;
     position: relative;
     background-color: #fff;
@@ -29,6 +28,12 @@ export const Modal = styled.div`
     border-radius: 2.4rem;
     & p{
         font-size: 2.2rem;
+    }
+    @media (max-width: 850px){
+        width: 70vw;
+    }
+    @media (max-width: 500px) {
+        width: 95vw;
     }
 `
 export const Avatar = styled.img`

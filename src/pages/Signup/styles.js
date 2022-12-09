@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
@@ -8,11 +8,13 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const LoginCard = styled.form`
+export const RegisterCard = styled.form`
   padding: 5rem;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2.4rem;
   border-radius: 1rem;
   box-shadow: 0px 1px 10px #808080;
   background-color: #f8f8f8;
@@ -22,9 +24,8 @@ export const LoginCard = styled.form`
   }
 `;
 
-export const EnterButton = styled.button`
+export const RegisterButton = styled.button`
   all: unset;
-  margin: ${({ noMargin }) => noMargin ? noMargin : '2rem 0 1rem 0'};
   cursor: pointer;
   width: 16rem;
   height: 3rem;
@@ -55,23 +56,7 @@ export const LogoImage = styled.img`
   left: 3rem;
 `;
 
-export const Spacer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 1rem 0 2rem 0;
-  font-size: 1.4rem;
-
-  & div{
-    flex-grow: 1;
-    background-color: #cacaca;
-    height: 0.1rem;
-  }
-`
-
-export const LinkToSignUp = styled.span`
-    margin-top: 1.5rem;
+export const LinkToSignIn = styled.span`
     font-size: 1.4rem;
     & a{
         color: #1976d2;

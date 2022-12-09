@@ -1,13 +1,24 @@
 import { getAuth } from "firebase/auth";
 import { app } from "../../../firebase/firebaseConfig";
 import { HeaderApp, LogoSalt } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { clearToken } from "../../../helpers/token";
 import saltLogo from "../../assets/logo_salt.png";
+import AddContact from "../AddContact";
+import { useEffect, useState } from "react";
+import MobileNavbar from "../MobileNavbar";
 
 export default function Header() {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const auth = getAuth(app);
+  const [isMobile, setMobile] = useState(false);
+  useEffect(() => {
+    console.log(window);
+    if (window.matchMedia("(max-width: 650px)").matches) {
+      setMobile(true);
+    }
+  }, []);
   const logout = () => {
     auth.signOut();
     clearToken();
@@ -16,8 +27,31 @@ export default function Header() {
   return (
     <HeaderApp>
       <LogoSalt src={saltLogo} alt="" />
-      <h1>Salt Chat</h1>
-      <button onClick={() => logout()}>Sair</button>
+      {!isMobile ? (
+        <>
+          <AddContact />
+          <h1>Salt Chat</h1>
+          {pathname === "/chat" ? (
+            <button onClick={() => navigate("/contacts")}>Contatos</button>
+          ) : (
+            <button onClick={() => navigate("/chat")}>Chat</button>
+          )}
+          <button onClick={() => logout()}>Sair</button>
+        </>
+      ) : (
+        <>
+          <h1>Salt Chat</h1>
+          <MobileNavbar>
+            <AddContact />
+            {pathname === "/chat" ? (
+              <button onClick={() => navigate("/contacts")}>Contatos</button>
+            ) : (
+              <button onClick={() => navigate("/chat")}>Chat</button>
+            )}
+            <button onClick={() => logout()}>Sair</button>
+          </MobileNavbar>
+        </>
+      )}
     </HeaderApp>
   );
 }

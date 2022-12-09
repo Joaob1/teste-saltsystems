@@ -16,9 +16,9 @@ export const HeaderApp = styled.header`
     }
     & button{
         all: unset;
+        min-width: 13.4rem;
         border: 2px solid #1976d2;
         height: 4.5rem;
-        width: 10rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -35,6 +35,9 @@ export const HeaderApp = styled.header`
     }
 `
 export const LogoSalt = styled.img`
-    width: 12rem;
+    width: 10rem;
     cursor: pointer;
+`
+export const ButtonNavbar = styled.div`
+
 `

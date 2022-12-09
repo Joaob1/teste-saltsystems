@@ -19,7 +19,7 @@ export const MessageSent = styled.div`
     justify-self: flex-end;
   }
   & img{
-    margin-left: 0.3rem;
+    margin: 0 0.3rem;
     width: 5rem;
     border-radius: 50%;
   }
@@ -53,8 +53,17 @@ export const MessageReceived = styled.div`
   }
   & img{
     border-radius: 50%;
-    margin-right: 0.3rem;
+    margin: 0 0.3rem;
     width: 5rem;
     height: 5rem;
   }
 `;
+
+export const DefaultIcon = styled.img`
+  margin: 0 0.3rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  padding: 0.1rem;
+  background-color: #000;
+`
