@@ -7,14 +7,27 @@ import saltLogo from "../../assets/logo_salt.png";
 import AddContact from "../AddContact";
 import { useEffect, useState } from "react";
 import MobileNavbar from "../MobileNavbar";
-
+const auth = getAuth(app);
 export default function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const auth = getAuth(app);
   const [isMobile, setMobile] = useState(false);
+  const [userAuth, setUserAuth] = useState(false);
+
+  const getUser = async () => {
+    auth.onAuthStateChanged((user) => {
+      if (!user) {
+        logout();
+      }
+      return setUserAuth(user);
+    });
+  };
   useEffect(() => {
-    console.log(window);
+    getUser();
+  }, []);
+
+  useEffect(() => {
     if (window.matchMedia("(max-width: 650px)").matches) {
       setMobile(true);
     }
