@@ -22,6 +22,12 @@ export const RegisterCard = styled.form`
     font-size: 2.4rem;
     font-weight: 700;
   }
+  @media(max-width: 800px){
+    width: 70%;
+  }
+  @media(max-width: 450px){
+    width: 95%;
+  }
 `;
 
 export const RegisterButton = styled.button`
