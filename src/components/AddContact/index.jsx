@@ -28,7 +28,7 @@ export default function AddContact() {
   const [inputEmail, setInputEmail] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newContact = await users.addContact(inputEmail, Users);
+    const newContact = await users.addContact(inputEmail.toLowerCase(), Users);
     if (newContact) {
       return setOpen(false);
     }
